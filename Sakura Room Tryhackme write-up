@@ -1,0 +1,174 @@
+Sakura Room Tryhackme write-up
+
+tryhackme room link: https://tryhackme.com/room/sakura
+
+Task 2: 
+ What username does the attacker go by? 
+ 
+Open the image from here https://raw.githubusercontent.com/OsintDojo/OsintDojo.github.io/d846483eb41dd4fdb6d00ac84ecdb4a66be6a191/TryHackMe/Sakura/sakurapwnedletter.svg and right click to open view sorce. 
+
+now look at the filename /home/SakuraXXXXXXXXXXXX/Desktop/pwnedletter
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="116.29175mm"
+   height="174.61578mm"
+   viewBox="0 0 116.29175 174.61578"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="pwnedletter.svg"
+   inkscape:export-filename="/home/SakuraXXXXXXXX/Desktop/pwnedletter.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">>
+  <defs
+     id="defs2">
+	 
+	 
+Task 3:
+
+Now, we got the username lets find out what is his email id:
+
+
+What is the full email address used by the attacker?
+
+For this im using the below url to find social profiles associatged with the username SakuraXXXXXXXX/
+
+https://instantusername.com/#/
+
+We can see a github profile with the username:
+https://github.com/SakuraXXXXXXXX/
+
+Open GPG repositry and we have a signature:
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQGNBGALrAYBDACsGmhcjKRelsBCNXwWvP5mN7saMKsKzDwGOCBBMViON52nqRyd
+HivLsWdwN2UwRXlfJoxCM5+QlxRpzrJlkIgAXGD23z0ot+S7R7tZ8Yq2HvSe5JJL
+FzoZjCph1VsvMfNIPYFcufbwjJzvBAG00Js0rBj5t1EHaXK6rtJz6UMZ4n+B2Vm9
+LIx8VihIU9QfjGAyyvX735ZS1zMhEyNGQmusrDpahvIwjqEChVa4hyVIAOg7p5Fm
+t6TzxhSPhNIpAtCDIYL1WdonRDgQ3VrtG5S/dTNbzDGdvAg13B8EEH00d+VqOTpu
+fnR4GnKFep52czHVkBkrNY1tL5ZyYxHUFaSfYWh9FI2RUGQSbCihAIzKSP26mFeH
+HPFmxrvStovcols4f1tOA6bF+GbkkDj+MUgvrUZWbeXbRvyoKTJNonhcf5bMz/D5
+6StORyd15O+iiLLRyi5Xf6I2RRHPfp7A4TsuH4+aOxoVaMxgCFZb7cMXNqDpeJO1
+/idzm0HUkCiP6Z0AEQEAAbQgU2FrdXJhU25vd0FuZ2VsODNAcHJvdG9ubWFpbC5j
+b22JAdQEEwEKAD4WIQSmUZ8nO/iOkSaw9MXs3Q/SlBEEUAUCYAusBgIbAwUJA8Hp
+ugULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRDs3Q/SlBEEUP/9C/0b6aWQhTr7
+0Jgf68KnS8nTXLJeoi5S9+moP/GVvw1dsfLoHkJYXuIc/fne2Y1y4qjvEdSCtAIs
+rqReXnolyyqCWS2e70YsQ9Sgg0JG4o7rOVojKJNzuHDWQ944yhGk6zjC54qHba6+
+37F9erDy+xRQS9BSgEFf2C60Fe00i+vpOWipqYAc1VGaUxHNrVYn8FuO1sIRTIo7
+10LRlbUHVgZvDIRRl1dyFbF8B7oxrZZe9eWQGURjXEVg07nh1V5UzekRv7qLsVyg
+sTV3mxodvxgw3KmrxU9FsFSKY9Cdu8vN9IvFJWQQj++rnzyyTUCUmxSB9Y/L9wRx
+4+7DSpfV1e4bGOZKY+KQqipYypUX1AFMHeb2RKVvjK5DzMDq6CQs73jqq/vlYdp4
+kNsucdZKEKn2eVjJIon75OvE5cusOlOjZuR93+w5Cmf4q6DhpXSUT1APO16R1eue
+8mPTmCra9dEmzAMsnLEPSPXN5tzdxcDqHvvIDtj8M3l2iRyD6v1NeZa5AY0EYAus
+BgEMAN4mK70jRDxwnjQd8AJS133VncYT43gehVmkKaZOAFaxoZtmR6oJbiTwj+bl
+fV1IlXP5lI8OJBZ2YPEvLEBhuqeFQjEIG4Suk3p/HUaIXaVhiIjFRzoxoIZGM1Mh
+XKRsqc3Zd3LLg1Gir7smKSMv8qIlgnZZrOTcpWX9Qh9Od/MqtCRyg5Rt8FibtKFI
+Y0j4pvjGszEvwurHqS0Jxxzdd+jOsfgTewFAy1/93scmmCg7mqUQV79DbaDL4JZv
+vCd3rxX08JyMwdRcOveR3JJERsLN9v8xPv/dsJhS+yaBH+F2vXQEldXEOazwdJhj
+ddXCVNzmTCIZ85S/lXWLLUa6I1WCcf4s8ffDv9Z3F21Hw64aAWEA+H3v+tvS9pxv
+I63/4u2T2o4pu/M489R+pV/9W7jQydeE6kCyRDG1doTVJBi1WzhtEqXZ3ssSZXpb
+bGuUcDLbqgCLLpk62Es9QQzKVTXf3ykOOFWaeqE2aLCjVbpi1AZEQ7lmxtco/M+D
+VzJSmwARAQABiQG8BBgBCgAmFiEEplGfJzv4jpEmsPTF7N0P0pQRBFAFAmALrAYC
+GwwFCQPB6boACgkQ7N0P0pQRBFBC3wv/VhJMzYmW6fKraBSL4jDF6oiGEhcd6xT4
+DuvmpZWJ234aVlqqpsTnDQMWyiRTsIpIoMq3nxvIIXa+V612nRCBJUzuICRSxVOc
+Ii21givVUzKTaClyaibyVVuSp0YBJcspap5U16PQcgq12QAZynq9Kx040aDklxR/
+NC2kFS0rkqqkku2R5aR4t2vCbwqJng4bw8A2oVbde5OXLk4Sem9VEhQMdK/v/Egc
+FT8ScMLfUs6WEHORjlkJNZ11Hg5G//pmLeh+bimi8Xd2fHAIhISCZ9xI6I75ArCJ
+XvAfk9a0RASnLq4Gq9Y4L2oDlnrcAC0f1keyUbdvUAM3tZg+Xdatsg6/OWsK/dy1
+IzGWFwTbKx8Boirx1xd5XmxSV6GdxF9n2/KPXoYxsCf7gUTqmXaI6WTfsQHGEqj5
+vEAVomMlitCuPm2SSYnRkcgZG22fgq6randig/JpsHbToBtP0PEj+bacdSte29gJ
+23pRnPKc+41cwL3oq8yb/Fhj+biohgIp
+=grbk
+-----END PGP PUBLIC KEY BLOCK-----
+
+
+copy this and write into anyname.asc and save it. Open terminal and type gpg --import anyname.asc
+gpg: /home/simbot/.gnupg/trustdb.gpg: trustdb created
+gpg: key ECDD0FD294110450: public key "SakuraSnowAngel83@xxxxxxxx.com" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+
+And there we have email Id
+
+ What is the attacker's full real name? 
+ Search this username ‘SakuraSnowAngelXXX’ on google, you will find the linked in page.
+ 
+ Task 4:
+ 
+1. What cryptocurrency does the attacker own a cryptocurrency wallet for? 
+ 
+ Go back to github repositry and we can see a repo with name ETH. (with this we can understand what cryptocurrency he is using it)
+ 
+ https://github.com/sakurasnowangelaiko/ETH
+
+2 What is the attacker's cryptocurrency wallet address?
+
+Click on the above link and select history symbol and there we have altered data. 
+
+stratum://0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ss.Aiko:pswd@eu1.ethermine.org:4444 (hash modified)
+stratum://ethwallet.workerid:password@miningpool:port
+
+3 What mining pool did the attacker receive payments from on January 23, 2021 UTC?
+
+Answer is in above lines.
+
+4. What other cryptocurrency did the attacker exchange with using their cryptocurrency wallet?
+
+We can use a simple google search to find the answer. 
+
+this can help https://etherscan.io/address/0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ef
+
+Task 5
+
+1 What is the attacker's current Twitter handle? 
+
+here is the answer : https://raw.githubusercontent.com/OsintDojo/OsintDojo.github.io/main/TryHackMe/Sakura/taunt.png
+
+2 What is the URL for the location where the attacker saved their WiFi  SSIDs and passwords?
+
+open this url https://ibb.co/1rHfgVb and see the snippet(url) concatinate the url and hash over there
+
+3 .  What is the BSSID for the attacker's Home WiFi?
+wigle.net can help.
+wigle.net is a website where we can find wireless network data by using location, name etc. From the above saved screenshot we got exact name of wifi. 
+
+Task 6 :
+1. What airport is closest to the location the attacker shared a photo from prior to getting on their flight? 
+ 
+ Open the twitter profile of the user https://twitter.com/SakuraLoverAiko
+ We can see an image with status having "Today, in Bethesda, the beginnings of Cherry blossomcherry blossom seasonCherry blossom"
+ 
+ lets google near airport to that place "Bethesda" and see airport code with 3 letters
+
+2.  What airport did the attacker have their last layover in?
+
+Goback to twitter and see another image with status having "My final layover, time to relax!"
+
+In the image we can see a hotel name; lets google it
+
+"sakura lounge haneda airport" ( answer should be airport code)
+
+3: What airport is closest to the location the attacker shared a photo from prior to getting on their flight?
+
+Search lakes in japan and also near tokyo and looked on map “Lake InXXXXXXX” is the closest.
+
+4 . 4: What city does the attacker likely consider “home”?
+Ans: https://ibb.co/1rHfgVb (answer is here) 
+
+Thanks,
+Prashanth
+
+
+ 
